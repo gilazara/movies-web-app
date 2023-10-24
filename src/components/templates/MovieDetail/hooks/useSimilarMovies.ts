@@ -14,7 +14,7 @@ function useSimilarMovies(id: string) {
   return {
     error,
     isLoading,
-    similarMovies: data,
+    similarMovies: data?.results,
   };
 }
 

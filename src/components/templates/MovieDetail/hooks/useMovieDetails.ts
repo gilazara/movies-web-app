@@ -4,8 +4,9 @@ import getMovieDetails from "src/api/services/getMovieDetails";
 
 function useMovieDetails(type: MediaType, id: string) {
   const { data, isLoading, error } = useQuery({
-    queryKey: ["movie-details"],
+    queryKey: ["movie-details", id],
     queryFn: () => getMovieDetails(type, id),
+    staleTime: 500,
   });
 
   return {
