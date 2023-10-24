@@ -11,6 +11,7 @@ interface MovieCardProps {
   imdb: number;
   description: string;
   onShowTrailer?: () => void;
+  showTrailerButton?: boolean;
 }
 
 const MovieCard = ({
@@ -19,6 +20,7 @@ const MovieCard = ({
   src,
   imdb,
   onShowTrailer,
+  showTrailerButton = true,
 }: MovieCardProps) => {
   return (
     <Card
@@ -35,7 +37,11 @@ const MovieCard = ({
         image={import.meta.env.VITE_APP_API_IMAGES_URL + src}
       />
       <CardContent>
-        <Typography variant="body1" sx={{ height: "20px", overflow: "hidden" }}>
+        <Typography
+          mb={1}
+          variant="body1"
+          sx={{ height: "20px", overflow: "hidden" }}
+        >
           {title}
         </Typography>
         <Description variant="body2">{description}</Description>
@@ -43,16 +49,18 @@ const MovieCard = ({
       <CardActions
         sx={{ padding: 2, display: "flex", justifyContent: "space-between" }}
       >
-        <Typography color="text.primary">IMDB: {imdb}</Typography>
-        <TrailerButton
-          variant="outlined"
-          onClick={(e) => {
-            e.preventDefault();
-            onShowTrailer && onShowTrailer();
-          }}
-        >
-          Trailer
-        </TrailerButton>
+        <Typography color="text.primary">IMDB: {imdb.toFixed(1)}</Typography>
+        {showTrailerButton && (
+          <TrailerButton
+            variant="outlined"
+            onClick={(e) => {
+              e.preventDefault();
+              onShowTrailer && onShowTrailer();
+            }}
+          >
+            Trailer
+          </TrailerButton>
+        )}
       </CardActions>
     </Card>
   );

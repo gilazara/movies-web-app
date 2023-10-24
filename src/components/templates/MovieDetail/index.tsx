@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -13,14 +13,24 @@ import SimilarMovies from "./SimilarMovies";
 import useSimilarMovies from "./hooks/useSimilarMovies";
 import { useParams, useSearchParams } from "react-router-dom";
 import Loader from "src/components/UI/Loader";
+import Reviews from "./Reviews";
 
 const MovieDetails = () => {
   const { type } = useParams();
+
   const [searchParams] = useSearchParams();
-  const movieId = searchParams.get("id");
-  const { cast = [] } = useCredits(movieId!);
-  const { similarMovies = [] } = useSimilarMovies(movieId!);
-  const { isLoading, details } = useMovieDetails(type as MediaType, movieId!);
+  const movieId = searchParams.get("id")!;
+
+  const { cast = [] } = useCredits(movieId);
+  const { similarMovies = [] } = useSimilarMovies(movieId);
+  const { isLoading, details } = useMovieDetails(type as MediaType, movieId);
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, [movieId]);
 
   return (
     <React.Fragment>
@@ -57,6 +67,7 @@ const MovieDetails = () => {
       </Grid>
       <Cast cast={cast} />
       <SimilarMovies similarMovies={similarMovies} />
+      <Reviews movieId={movieId} />
     </React.Fragment>
   );
 };

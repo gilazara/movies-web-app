@@ -21,10 +21,11 @@ const SimilarMovies = ({ similarMovies }: { similarMovies: Movie[] }) => {
                   <SwiperSlide key={movie.id}>
                     <Link to={`/${type}?id=${movie.id}`}>
                       <MovieCard
-                        title={movie.title}
                         src={movie.poster_path}
+                        showTrailerButton={false}
                         imdb={movie.vote_average}
                         description={movie.overview}
+                        title={movie.title || movie.name}
                       />
                     </Link>
                   </SwiperSlide>

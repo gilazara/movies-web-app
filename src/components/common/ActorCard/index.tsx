@@ -35,7 +35,7 @@ const ActorCard = ({ src, name, character, ranking }: Props) => {
             Character: {character}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Imdb: {ranking}
+            Imdb: {ranking.toFixed(1)}
           </Typography>
         </CardContent>
       </CardActionArea>

@@ -42,4 +42,18 @@ export interface IActor {
   profile_path: string;
 }
 
+export interface IReview {
+  author: string;
+  author_details: {
+    avatar_path: string;
+    name: string;
+    rating: number;
+    username: string;
+  };
+  content: string;
+  created_at: string;
+  id: string;
+  url: string;
+}
+
 export type MediaType = "tv" | "movie";

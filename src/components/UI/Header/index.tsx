@@ -7,8 +7,8 @@ const Header = () => {
     <Grid sx={{ background: "#fff" }} py={3} px={12}>
       <Link to="/">
         <img
-          alt="movieDb"
           src={movieDb}
+          alt="movieDb-logo"
           style={{ width: "180px", height: "60px", borderRadius: "6px" }}
         />
       </Link>
