@@ -1,9 +1,9 @@
-import MovieCard from "src/components/common/MovieCard";
-import useGenres from "./hooks/useGenres";
-import MainLayout from "src/components/UI/MainLayout";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import MovieCard from "src/components/common/MovieCard";
+import useGenres from "./hooks/useGenres";
+import MainLayout from "src/components/UI/MainLayout";
 import Slider from "src/components/UI/Slider";
 import usePopularMovies from "./hooks/usePopularMovies";
 import { SwiperSlide } from "swiper/react";
@@ -11,12 +11,15 @@ import SliderWrapper from "src/components/UI/SliderWrapper";
 import Link from "src/components/common/Link";
 import usePopularTvShows from "./hooks/usePopularTvShows";
 import useTrendingMovies from "./hooks/useTrendingMovies";
+import useToggle from "src/hooks/useToggle";
+import PlayerModal from "src/components/UI/PlayerModal";
 
 const MainPage = () => {
   const { genres = [] } = useGenres();
   const { trending = [] } = useTrendingMovies();
   const { popularShows = [] } = usePopularTvShows();
   const { popularMovies = [] } = usePopularMovies();
+  const [videoModalShown, setVideoModalShown] = useToggle();
 
   return (
     <>
@@ -25,10 +28,12 @@ const MainPage = () => {
         <Slider>
           {popularMovies.map((movie) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={movie.id}>
                 <Link to={`/movie?id=${movie.id}`}>
                   <MovieCard
                     title={movie.title}
+                    onShowTrailer={setVideoModalShown}
+                    imdb={movie.vote_average}
                     src={
                       import.meta.env.VITE_APP_API_IMAGES_URL +
                       movie.poster_path
@@ -45,10 +50,12 @@ const MainPage = () => {
         <Slider>
           {popularShows.map((movie) => {
             return (
-              <SwiperSlide>
+              <SwiperSlide key={movie.id}>
                 <Link to={`/tv?id=${movie.id}`}>
                   <MovieCard
                     title={movie.name}
+                    onShowTrailer={setVideoModalShown}
+                    imdb={movie.vote_average}
                     src={
                       import.meta.env.VITE_APP_API_IMAGES_URL +
                       movie.poster_path
@@ -67,10 +74,12 @@ const MainPage = () => {
             const mediaType = movie.media_type === "tv" ? "tv" : "movie";
 
             return (
-              <SwiperSlide>
+              <SwiperSlide key={movie.id}>
                 <Link to={`/${mediaType}?id=${movie.id}`}>
                   <MovieCard
                     title={movie.title}
+                    onShowTrailer={setVideoModalShown}
+                    imdb={movie.vote_average}
                     src={
                       import.meta.env.VITE_APP_API_IMAGES_URL +
                       movie.poster_path
@@ -83,6 +92,11 @@ const MainPage = () => {
           })}
         </Slider>
       </SliderWrapper>
+      <PlayerModal
+        open={videoModalShown}
+        onClose={setVideoModalShown}
+        src={"https://www.youtube.com/embed/uYPbbksJxIg?si=-BkqOcBZnV_pbadB"}
+      />
     </>
   );
 };
