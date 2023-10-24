@@ -7,7 +7,7 @@ function useSimilarMovies(id: string) {
   const { type } = useParams();
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ["similar-movies"],
+    queryKey: ["similar-movies", id],
     queryFn: () => getSimilarMovie(type as MediaType, id),
   });
 

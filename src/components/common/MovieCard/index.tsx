@@ -10,7 +10,7 @@ interface MovieCardProps {
   title: string;
   imdb: number;
   description: string;
-  onShowTrailer: () => void;
+  onShowTrailer?: () => void;
 }
 
 const MovieCard = ({
@@ -28,7 +28,12 @@ const MovieCard = ({
         border: "1px solid #F8F0E5",
       }}
     >
-      <CardMedia component="img" alt="movie-poster" height="340" image={src} />
+      <CardMedia
+        component="img"
+        alt="movie-poster"
+        height="340"
+        image={import.meta.env.VITE_APP_API_IMAGES_URL + src}
+      />
       <CardContent>
         <Typography variant="body1" sx={{ height: "20px", overflow: "hidden" }}>
           {title}
@@ -43,7 +48,7 @@ const MovieCard = ({
           variant="outlined"
           onClick={(e) => {
             e.preventDefault();
-            onShowTrailer();
+            onShowTrailer && onShowTrailer();
           }}
         >
           Trailer

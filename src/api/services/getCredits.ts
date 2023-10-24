@@ -1,13 +1,14 @@
 import instance from "src/api/instance";
+import { IActor, MediaType } from "src/api/interfaces";
 
 interface CreditsResponse {
-  cast: any;
-  crew: any;
+  id: number;
+  cast: IActor[];
 }
 
-const getCredits = async (movieId: number) => {
+const getCredits = async (type: MediaType, movieId: string) => {
   const { data } = await instance.get<CreditsResponse>(
-    `movie/${movieId}/credits`
+    `${type}/${movieId}/credits`
   );
 
   return data;

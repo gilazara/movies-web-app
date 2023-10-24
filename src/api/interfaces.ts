@@ -32,4 +32,14 @@ export default interface TvShow {
   vote_count: number;
 }
 
+export interface IActor {
+  cast_id: number;
+  character: string;
+  gender: 1 | 2;
+  id: number;
+  name: string;
+  popularity: number;
+  profile_path: string;
+}
+
 export type MediaType = "tv" | "movie";
