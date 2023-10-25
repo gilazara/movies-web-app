@@ -51,7 +51,9 @@ const MovieCard = ({
       <CardActions
         sx={{ padding: 2, display: "flex", justifyContent: "space-between" }}
       >
-        <Typography color="text.primary">IMDB: {imdb.toFixed(1)}</Typography>
+        <Typography color="text.primary">
+          IMDB: {imdb ? imdb.toFixed(1) : "N/A"}
+        </Typography>
         {showTrailerButton && (
           <TrailerButton
             variant="outlined"

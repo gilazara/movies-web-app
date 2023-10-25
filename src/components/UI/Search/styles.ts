@@ -1,17 +1,16 @@
-import palette from "src/theme/palette";
 import { Button, Box, styled } from "@mui/material";
 
-export const SearchButton = styled(Button)(() => ({
+export const SearchButton = styled(Button)(({ theme }) => ({
   position: "absolute",
   top: "50%",
   right: "16px",
   transform: "translateY(-50%)",
-  background: palette.tomato,
+  background: theme.palette.tomato,
   color: "#fff",
   padding: "8px 30px",
   borderRadius: "10px",
   ":hover": {
-    background: palette.tomato,
+    background: theme.palette.tomato,
   },
 }));
 
