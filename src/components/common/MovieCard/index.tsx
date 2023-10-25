@@ -1,4 +1,5 @@
 import Card from "@mui/material/Card";
+import { IMAGES_URL } from "src/utils/config";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
@@ -34,7 +35,7 @@ const MovieCard = ({
         component="img"
         alt="movie-poster"
         height="340"
-        image={import.meta.env.VITE_APP_API_IMAGES_URL + src}
+        image={IMAGES_URL + src}
       />
       <CardContent>
         <Typography

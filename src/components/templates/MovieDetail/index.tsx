@@ -14,6 +14,7 @@ import useSimilarMovies from "./hooks/useSimilarMovies";
 import { useParams, useSearchParams } from "react-router-dom";
 import Loader from "src/components/UI/Loader";
 import Reviews from "./Reviews";
+import { IMAGES_URL } from "src/utils/config";
 
 const MovieDetails = () => {
   const { type } = useParams();
@@ -51,10 +52,8 @@ const MovieDetails = () => {
             <Grid item xs={4} width="400px">
               <img
                 alt="movie-poster"
+                src={IMAGES_URL + details?.poster_path}
                 style={{ width: "400px", height: "100%" }}
-                src={
-                  import.meta.env.VITE_APP_API_IMAGES_URL + details?.poster_path
-                }
               />
             </Grid>
             <Grid item lg={8} xs={7}>

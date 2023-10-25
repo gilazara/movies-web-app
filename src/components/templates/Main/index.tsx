@@ -1,6 +1,7 @@
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { IMAGES_URL } from "src/utils/config";
 import MovieCard from "src/components/common/MovieCard";
 import useGenres from "./hooks/useGenres";
 import MainLayout from "src/components/UI/MainLayout";
@@ -32,13 +33,10 @@ const MainPage = () => {
                 <Link to={`/movie?id=${movie.id}`}>
                   <MovieCard
                     title={movie.title}
-                    onShowTrailer={setVideoModalShown}
                     imdb={movie.vote_average}
-                    src={
-                      import.meta.env.VITE_APP_API_IMAGES_URL +
-                      movie.poster_path
-                    }
                     description={movie.overview}
+                    onShowTrailer={setVideoModalShown}
+                    src={IMAGES_URL + movie.poster_path}
                   />
                 </Link>
               </SwiperSlide>
@@ -54,13 +52,10 @@ const MainPage = () => {
                 <Link to={`/tv?id=${movie.id}`}>
                   <MovieCard
                     title={movie.name}
-                    onShowTrailer={setVideoModalShown}
                     imdb={movie.vote_average}
-                    src={
-                      import.meta.env.VITE_APP_API_IMAGES_URL +
-                      movie.poster_path
-                    }
                     description={movie.overview}
+                    onShowTrailer={setVideoModalShown}
+                    src={IMAGES_URL + movie.poster_path}
                   />
                 </Link>
               </SwiperSlide>
@@ -78,13 +73,10 @@ const MainPage = () => {
                 <Link to={`/${mediaType}?id=${movie.id}`}>
                   <MovieCard
                     title={movie.title}
-                    onShowTrailer={setVideoModalShown}
                     imdb={movie.vote_average}
-                    src={
-                      import.meta.env.VITE_APP_API_IMAGES_URL +
-                      movie.poster_path
-                    }
                     description={movie.overview}
+                    onShowTrailer={setVideoModalShown}
+                    src={IMAGES_URL + movie.poster_path}
                   />
                 </Link>
               </SwiperSlide>

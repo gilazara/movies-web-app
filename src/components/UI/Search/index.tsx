@@ -5,6 +5,7 @@ import { MoviePoster, SearchButton, SearchResults } from "./styles";
 import movieIcon from "src/assets/images/movieIcon.png";
 import { Box, TextField, Typography } from "@mui/material";
 import useSearchMovies from "src/components/templates/Main/hooks/useSearchMovies";
+import { IMAGES_URL } from "src/utils/config";
 
 const Search = () => {
   const [searchValue, setSearchValue] = useState("");
@@ -37,8 +38,7 @@ const Search = () => {
                     <MoviePoster
                       src={
                         movie.poster_path
-                          ? import.meta.env.VITE_APP_API_IMAGES_URL +
-                            movie.poster_path
+                          ? IMAGES_URL + movie.poster_path
                           : movieIcon
                       }
                     />

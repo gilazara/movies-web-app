@@ -1,7 +1,7 @@
 import Search from "../Search";
-import { colorRandomizer } from "src/utils";
 import { Layout, GenresList } from "./styles";
 import { Box, Typography } from "@mui/material";
+import { colorRandomizer } from "src/utils/helpers";
 
 interface MainLayoutProps {
   genres: { id: number; name: string }[];

@@ -3,6 +3,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea } from "@mui/material";
+import { IMAGES_URL } from "src/utils/config";
 
 interface Props {
   src: string;
@@ -25,7 +26,7 @@ const ActorCard = ({ src, name, character, ranking }: Props) => {
           alt="actor"
           height="240"
           component="img"
-          image={import.meta.env.VITE_APP_API_IMAGES_URL + src}
+          image={IMAGES_URL + src}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

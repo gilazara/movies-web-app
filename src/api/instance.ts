@@ -1,7 +1,8 @@
 import axios from "axios";
+import { ACCESS_TOKEN, API_URL } from "src/utils/config";
 
 const instance = axios.create({
-  baseURL: import.meta.env.VITE_APP_API_URL,
+  baseURL: API_URL,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",
@@ -10,9 +11,7 @@ const instance = axios.create({
 
 instance.interceptors.request.use(
   (cfg) => {
-    cfg.headers["Authorization"] = `Bearer ${
-      import.meta.env.VITE_APP_ACCESS_TOKEN
-    }`;
+    cfg.headers["Authorization"] = `Bearer ${ACCESS_TOKEN}`;
 
     return cfg;
   },
