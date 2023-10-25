@@ -16,7 +16,7 @@ const DetailsCard = ({ type, details }: Props) => (
     flexDirection="column"
     sx={{ background: "#fff" }}
   >
-    <Typography variant="h3">
+    <Typography variant="h4">
       {type === "tv" ? details.name : details.title}
     </Typography>
     <Typography variant="body1" maxWidth={900}>

@@ -18,7 +18,7 @@ const Cast = ({ cast }: Props) => {
             <Slider>
               {cast?.map((actor: IActor) => {
                 return (
-                  <SwiperSlide key={actor.cast_id}>
+                  <SwiperSlide key={actor.id}>
                     <ActorCard
                       name={actor.name}
                       src={actor.profile_path}

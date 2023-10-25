@@ -44,8 +44,8 @@ const MovieDetails = () => {
             <Loader />
           </Grid>
         ) : (
-          <React.Fragment>
-            <Grid item xs={4} width="400px">
+          <Grid container justifyContent="space-between" columnSpacing={10}>
+            <Grid item sm={5} lg={4}>
               <img
                 alt="movie-poster"
                 src={
@@ -53,15 +53,15 @@ const MovieDetails = () => {
                     ? IMAGES_URL + details?.poster_path
                     : moviePoster
                 }
-                style={{ width: "400px", height: "100%" }}
+                style={{ width: "100%", height: "100%" }}
               />
             </Grid>
-            <Grid item lg={8} xs={7}>
+            <Grid item sm={7} lg={8}>
               {details?.id && (
                 <DetailsCard type={type as MediaType} details={details} />
               )}
             </Grid>
-          </React.Fragment>
+          </Grid>
         )}
       </DetailsWrapper>
       <Cast cast={cast} />

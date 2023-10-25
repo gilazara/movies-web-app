@@ -20,6 +20,9 @@ export const Layout = styled(Box)(({ theme }) => ({
     left: "50%",
     transform: "translate(-50%, -50%)",
   },
+  "@media (max-height: 850px)": {
+    height: "90vh",
+  },
 }));
 
 export const GenresList = styled(Box)(() => ({
