@@ -33,7 +33,7 @@ const Search = () => {
           {!isFetching &&
             movies.map((movie) => {
               return (
-                <Link to={`/${movie.media_type}?id=${movie.id}`}>
+                <Link key={movie.id} to={`/${movie.media_type}?id=${movie.id}`}>
                   <Box display="flex" gap={1} alignItems="center">
                     <MoviePoster
                       src={

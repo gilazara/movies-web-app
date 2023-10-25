@@ -15,12 +15,11 @@ const ReviewItem = ({ review }: Props) => {
 
   return (
     <Box
-      mt={3}
-      py={2}
-      px={4}
       sx={{
         gap: "16px",
+        marginTop: 3,
         display: "flex",
+        padding: "16px 32px",
         borderRadius: "12px",
         background: "#f7f5f1",
       }}

@@ -3,7 +3,7 @@ import Pagination from "@mui/material/Pagination";
 
 interface Props {
   count: number;
-  onPageChange: (val: number) => void;
+  onPageChange: (page: number) => void;
 }
 
 const Paginator = ({ count, onPageChange }: Props) => {
