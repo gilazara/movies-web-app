@@ -26,7 +26,7 @@ const MainLayout = ({ genres }: MainLayoutProps) => {
               borderRadius="8px"
               border={`1px solid ${randomColor}`}
             >
-              <Typography variant="caption" color="#fff">
+              <Typography variant="caption" color="primary.main">
                 {genre.name}
               </Typography>
             </Box>

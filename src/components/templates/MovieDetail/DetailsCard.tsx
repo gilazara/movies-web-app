@@ -7,15 +7,15 @@ interface Props {
   details: MovieDetails;
 }
 
-export const PlayerButton = styled(Button)(() => ({
-  background: "#79AC78",
+export const PlayerButton = styled(Button)(({ theme }) => ({
+  background: theme.palette.green[400],
   marginTop: "18px",
   width: "200px",
   "& p": {
     fontWeight: 700,
   },
   "&:hover": {
-    background: "#618264",
+    background: theme.palette.green[500],
   },
 }));
 
@@ -49,9 +49,7 @@ const DetailsCard = ({ type, details }: Props) => (
       <strong>Tagline:</strong> {details.tagline}
     </Typography>
     <Grid display="flex" justifyContent="flex-end" pr={8}>
-      <PlayerButton variant="text" disabled={!details.video}>
-        Play Video
-      </PlayerButton>
+      <PlayerButton variant="text">Play Video</PlayerButton>
     </Grid>
   </Grid>
 );

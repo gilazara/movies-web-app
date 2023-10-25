@@ -1,9 +1,9 @@
 import { Button, Typography, styled } from "@mui/material";
 
-export const TrailerButton = styled(Button)(() => ({
-  background: "#79AC78",
+export const TrailerButton = styled(Button)(({ theme }) => ({
+  background: theme.palette.green[400],
   "&:hover": {
-    background: "#618264",
+    background: theme.palette.green[500],
   },
 }));
 

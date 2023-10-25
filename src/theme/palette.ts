@@ -27,6 +27,10 @@ const palette: DefaultPaletteOptions = {
     disabled: "",
   },
   tomato: "#CA4445",
+  green: {
+    "400": "#79AC78",
+    "500": "#618264",
+  },
 };
 
 export default palette;
