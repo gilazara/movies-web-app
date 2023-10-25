@@ -28,7 +28,7 @@ const components: Components<Omit<Theme, "components">> = {
             color: palette.text.secondary,
           },
           input: {
-            background: "white",
+            background: palette.primary.main,
           },
         },
       },

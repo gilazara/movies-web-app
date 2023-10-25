@@ -16,7 +16,7 @@ const palette: DefaultPaletteOptions = {
   },
   secondary: {
     main: "#7162D0",
-    light: "#979DA2",
+    light: "#f7f5f1",
   },
   error: {
     main: "#F73E48",

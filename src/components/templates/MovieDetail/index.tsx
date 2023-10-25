@@ -6,6 +6,7 @@ import Cast from "./Cast";
 import Reviews from "./Reviews";
 import { Grid } from "@mui/material";
 import DetailsCard from "./DetailsCard";
+import { DetailsWrapper } from "./styles";
 import useCredits from "./hooks/useCredits";
 import SimilarMovies from "./SimilarMovies";
 import Loader from "src/components/UI/Loader";
@@ -37,13 +38,7 @@ const MovieDetails = () => {
   return (
     <React.Fragment>
       <Header />
-      <Grid
-        container
-        padding={12}
-        minHeight="800px"
-        justifyContent="space-between"
-        sx={{ background: "#f7f5f1" }}
-      >
+      <DetailsWrapper container>
         {isLoading ? (
           <Grid container alignItems="center" justifyContent="center">
             <Loader />
@@ -68,7 +63,7 @@ const MovieDetails = () => {
             </Grid>
           </React.Fragment>
         )}
-      </Grid>
+      </DetailsWrapper>
       <Cast cast={cast} />
       <SimilarMovies similarMovies={similarMovies} />
       <Reviews movieId={movieId} />

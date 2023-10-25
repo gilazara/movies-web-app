@@ -1,23 +1,12 @@
+import { PlayerButton } from "./styles";
 import { MediaType } from "src/api/interfaces";
-import { Button, Grid, Typography, styled } from "@mui/material";
+import { Grid, Typography } from "@mui/material";
 import { MovieDetails } from "src/api/services/getMovieDetails";
 
 interface Props {
   type: MediaType;
   details: MovieDetails;
 }
-
-export const PlayerButton = styled(Button)(({ theme }) => ({
-  background: theme.palette.green[400],
-  marginTop: "18px",
-  width: "200px",
-  "& p": {
-    fontWeight: 700,
-  },
-  "&:hover": {
-    background: theme.palette.green[500],
-  },
-}));
 
 const DetailsCard = ({ type, details }: Props) => (
   <Grid

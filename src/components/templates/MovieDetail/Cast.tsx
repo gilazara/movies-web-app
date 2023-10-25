@@ -1,7 +1,7 @@
-import Slider from "src/components/UI/Slider";
-import { SwiperSlide } from "swiper/react";
 import { Grid } from "@mui/material";
+import { SwiperSlide } from "swiper/react";
 import { IActor } from "src/api/interfaces";
+import Slider from "src/components/UI/Slider";
 import ActorCard from "src/components/common/ActorCard";
 import SliderWrapper from "src/components/UI/SliderWrapper";
 
