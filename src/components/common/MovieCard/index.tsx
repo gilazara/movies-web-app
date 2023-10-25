@@ -5,6 +5,7 @@ import Typography from "@mui/material/Typography";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import { Description, TrailerButton } from "./styles";
+import moviePoster from "src/assets/images/moviePoster.jpg";
 
 interface MovieCardProps {
   src: string;
@@ -16,10 +17,10 @@ interface MovieCardProps {
 }
 
 const MovieCard = ({
-  title,
-  description,
   src,
   imdb,
+  title,
+  description,
   onShowTrailer,
   showTrailerButton = true,
 }: MovieCardProps) => {
@@ -32,10 +33,10 @@ const MovieCard = ({
       }}
     >
       <CardMedia
+        height="340"
         component="img"
         alt="movie-poster"
-        height="340"
-        image={IMAGES_URL + src}
+        image={src ? IMAGES_URL + src : moviePoster}
       />
       <CardContent>
         <Typography

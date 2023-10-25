@@ -1,9 +1,10 @@
 import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
-import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
 import { IMAGES_URL } from "src/utils/config";
+import CardMedia from "@mui/material/CardMedia";
+import { CardActionArea } from "@mui/material";
+import Typography from "@mui/material/Typography";
+import CardContent from "@mui/material/CardContent";
+import actorPoster from "src/assets/images/actor.jpg";
 
 interface Props {
   src: string;
@@ -26,7 +27,7 @@ const ActorCard = ({ src, name, character, ranking }: Props) => {
           alt="actor"
           height="240"
           component="img"
-          image={IMAGES_URL + src}
+          image={src ? IMAGES_URL + src : actorPoster}
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">

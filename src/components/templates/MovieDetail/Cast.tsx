@@ -13,7 +13,7 @@ const Cast = ({ cast }: Props) => {
   return (
     <Grid>
       {cast?.length > 0 && (
-        <Grid mb={8}>
+        <Grid>
           <SliderWrapper type="Actors">
             <Slider>
               {cast?.map((actor: IActor) => {

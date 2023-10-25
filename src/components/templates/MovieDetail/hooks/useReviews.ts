@@ -16,6 +16,8 @@ function useReviews(page: number, id: string) {
     error,
     isLoading,
     reviews: data?.results,
+    reviewPage: data?.page,
+    totalPages: data?.total_pages ?? 0,
   };
 }
 

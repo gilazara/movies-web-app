@@ -2,19 +2,20 @@ import React, { useEffect } from "react";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import useMovieDetails from "./hooks/useMovieDetails";
 import Cast from "./Cast";
+import Reviews from "./Reviews";
 import { Grid } from "@mui/material";
-import { MediaType } from "src/api/interfaces";
 import DetailsCard from "./DetailsCard";
-import Header from "src/components/UI/Header";
 import useCredits from "./hooks/useCredits";
 import SimilarMovies from "./SimilarMovies";
-import useSimilarMovies from "./hooks/useSimilarMovies";
-import { useParams, useSearchParams } from "react-router-dom";
 import Loader from "src/components/UI/Loader";
-import Reviews from "./Reviews";
+import Header from "src/components/UI/Header";
 import { IMAGES_URL } from "src/utils/config";
+import { MediaType } from "src/api/interfaces";
+import useMovieDetails from "./hooks/useMovieDetails";
+import useSimilarMovies from "./hooks/useSimilarMovies";
+import moviePoster from "src/assets/images/moviePoster.jpg";
+import { useParams, useSearchParams } from "react-router-dom";
 
 const MovieDetails = () => {
   const { type } = useParams();
@@ -41,7 +42,7 @@ const MovieDetails = () => {
         padding={12}
         minHeight="800px"
         justifyContent="space-between"
-        sx={{ background: "#F5F4F2" }}
+        sx={{ background: "#f7f5f1" }}
       >
         {isLoading ? (
           <Grid container alignItems="center" justifyContent="center">
@@ -52,7 +53,11 @@ const MovieDetails = () => {
             <Grid item xs={4} width="400px">
               <img
                 alt="movie-poster"
-                src={IMAGES_URL + details?.poster_path}
+                src={
+                  details?.poster_path
+                    ? IMAGES_URL + details?.poster_path
+                    : moviePoster
+                }
                 style={{ width: "400px", height: "100%" }}
               />
             </Grid>

@@ -14,7 +14,17 @@ const ReviewItem = ({ review }: Props) => {
   const avatar = avatar_path ? IMAGES_URL + avatar_path : userIcon;
 
   return (
-    <Box display="flex" gap={2} paddingY={2}>
+    <Box
+      mt={3}
+      py={2}
+      px={4}
+      sx={{
+        gap: "16px",
+        display: "flex",
+        borderRadius: "12px",
+        background: "#f7f5f1",
+      }}
+    >
       <Avatar alt="user-avatar" src={avatar} />
       <Box>
         <Typography variant="body1" fontWeight={600}>

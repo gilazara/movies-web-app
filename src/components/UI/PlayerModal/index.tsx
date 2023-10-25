@@ -14,7 +14,13 @@ const PlayerModal = ({ open, onClose, src }: Props) => {
       onClose={onClose}
       PaperProps={{ style: { borderRadius: "8px" } }}
     >
-      <DialogContent>
+      <DialogContent
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <iframe
           src={src}
           width="760"
