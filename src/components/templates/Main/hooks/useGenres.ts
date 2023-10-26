@@ -5,7 +5,7 @@ function useGenres() {
   const { data, isLoading, error } = useQuery({
     queryKey: ["genres"],
     queryFn: getGenres,
-    staleTime: 1000,
+    staleTime: Infinity,
   });
 
   return {

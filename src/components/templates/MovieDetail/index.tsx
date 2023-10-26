@@ -4,7 +4,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import Cast from "./Cast";
 import Reviews from "./Reviews";
-import { Grid } from "@mui/material";
+import palette from "src/theme/palette";
 import DetailsCard from "./DetailsCard";
 import { DetailsWrapper } from "./styles";
 import useCredits from "./hooks/useCredits";
@@ -13,6 +13,7 @@ import Loader from "src/components/UI/Loader";
 import Header from "src/components/UI/Header";
 import { IMAGES_URL } from "src/utils/config";
 import { MediaType } from "src/api/interfaces";
+import { Grid, Typography } from "@mui/material";
 import useMovieDetails from "./hooks/useMovieDetails";
 import useSimilarMovies from "./hooks/useSimilarMovies";
 import moviePoster from "src/assets/images/moviePoster.jpg";
@@ -26,7 +27,10 @@ const MovieDetails = () => {
 
   const { cast = [] } = useCredits(movieId);
   const { similarMovies = [] } = useSimilarMovies(movieId);
-  const { isLoading, details } = useMovieDetails(type as MediaType, movieId);
+  const { isLoading, details, isError } = useMovieDetails(
+    type as MediaType,
+    movieId
+  );
 
   useEffect(() => {
     window.scrollTo({
@@ -35,35 +39,51 @@ const MovieDetails = () => {
     });
   }, [movieId]);
 
+  const notFound = (
+    <Grid
+      display="flex"
+      minHeight="400px"
+      alignItems="center"
+      justifyContent="center"
+      sx={{ background: palette.secondary.light }}
+    >
+      <Typography variant="h3">Failed to fetch Movie Details</Typography>
+    </Grid>
+  );
+
   return (
     <React.Fragment>
       <Header />
-      <DetailsWrapper container>
-        {isLoading ? (
-          <Grid container alignItems="center" justifyContent="center">
-            <Loader />
-          </Grid>
-        ) : (
-          <Grid container justifyContent="space-between" columnSpacing={10}>
-            <Grid item sm={5} lg={4}>
-              <img
-                alt="movie-poster"
-                src={
-                  details?.poster_path
-                    ? IMAGES_URL + details?.poster_path
-                    : moviePoster
-                }
-                style={{ width: "100%", height: "100%" }}
-              />
+      {isError && notFound}
+      {!isError && (
+        <DetailsWrapper container>
+          {isLoading ? (
+            <Grid container alignItems="center" justifyContent="center">
+              <Loader />
             </Grid>
-            <Grid item sm={7} lg={8}>
-              {details?.id && (
-                <DetailsCard type={type as MediaType} details={details} />
-              )}
+          ) : (
+            <Grid container justifyContent="space-between" columnSpacing={10}>
+              <Grid item sm={5} lg={4}>
+                <img
+                  alt="movie-poster"
+                  src={
+                    details?.poster_path
+                      ? IMAGES_URL + details?.poster_path
+                      : moviePoster
+                  }
+                  style={{ width: "100%", height: "100%" }}
+                />
+              </Grid>
+              <Grid item sm={7} lg={8}>
+                {details?.id && (
+                  <DetailsCard type={type as MediaType} details={details} />
+                )}
+              </Grid>
             </Grid>
-          </Grid>
-        )}
-      </DetailsWrapper>
+          )}
+        </DetailsWrapper>
+      )}
+
       <Cast cast={cast} />
       <SimilarMovies similarMovies={similarMovies} />
       <Reviews movieId={movieId} />
