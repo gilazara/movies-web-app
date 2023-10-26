@@ -7,7 +7,7 @@ interface Props {
   children: React.ReactNode;
 }
 
-export const mainTheme = createTheme({
+const mainTheme = createTheme({
   palette,
   components,
 });

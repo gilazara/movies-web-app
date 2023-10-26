@@ -1,4 +1,5 @@
 import Card from "@mui/material/Card";
+import palette from "src/theme/palette";
 import { IMAGES_URL } from "src/utils/config";
 import CardMedia from "@mui/material/CardMedia";
 import { CardActionArea } from "@mui/material";
@@ -19,7 +20,7 @@ const ActorCard = ({ src, name, character, ranking }: Props) => {
       sx={{
         maxWidth: 345,
         boxShadow: "none",
-        border: "1px solid #F8F0E5",
+        border: `1px solid ${palette.secondary.main}`,
       }}
     >
       <CardActionArea>

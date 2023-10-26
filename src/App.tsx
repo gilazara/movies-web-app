@@ -1,3 +1,4 @@
+import "./index.css";
 import MuiThemeWrapper from "./theme";
 import MainPage from "src/components/templates/Main";
 import MovieDetails from "src/components/templates/MovieDetail";

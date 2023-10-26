@@ -1,4 +1,3 @@
-import React from "react";
 import { styled } from "@mui/material";
 import { Link as RouterLink, LinkProps } from "react-router-dom";
 
@@ -7,7 +6,7 @@ export const StyledLink = styled(RouterLink)(({ theme }) => ({
   color: theme.palette.text.primary,
 }));
 
-const Link: React.FC<LinkProps> = ({ children, to }) => (
+const Link = ({ children, to }: LinkProps) => (
   <StyledLink to={to}>{children}</StyledLink>
 );
 

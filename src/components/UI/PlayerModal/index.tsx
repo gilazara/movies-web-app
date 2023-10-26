@@ -19,12 +19,14 @@ const PlayerModal = ({ open, onClose, src }: Props) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          padding: 1,
         }}
       >
         <iframe
           src={src}
-          width="760"
-          height="400"
+          width="850"
+          height="450"
+          style={{ borderRadius: "6px" }}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         ></iframe>
       </DialogContent>
