@@ -33,23 +33,25 @@ export default interface TvShow {
 }
 
 export interface IActor {
+  id: number;
   cast_id: number;
   character: string;
   gender: 1 | 2;
-  id: number;
   name: string;
   popularity: number;
   profile_path: string;
 }
 
+export interface IAuthor {
+  avatar_path: string;
+  name: string;
+  rating: number;
+  username: string;
+}
+
 export interface IReview {
   author: string;
-  author_details: {
-    avatar_path: string;
-    name: string;
-    rating: number;
-    username: string;
-  };
+  author_details: IAuthor;
   content: string;
   created_at: string;
   id: string;

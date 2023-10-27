@@ -10,9 +10,7 @@ const components: Components<Omit<Theme, "components">> = {
     },
     variants: [
       {
-        props: {
-          variant: "outlined",
-        },
+        props: { variant: "outlined" },
         style: {
           "& .MuiOutlinedInput-root": {
             "& fieldset": {
@@ -22,7 +20,6 @@ const components: Components<Omit<Theme, "components">> = {
             "&:hover fieldset": {
               borderColor: palette.primary.light,
             },
-            "&.Mui-focused fieldset": {},
           },
           "& .MuiInputLabel-root": {
             color: palette.text.secondary,
